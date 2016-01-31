@@ -18,25 +18,9 @@ namespace AssociationCSV
             {
                 try
                 {
-                    /*
                     string[] fileContent = readLines(path);
                     List<List<string>> cells = getCells(fileContent);
                     List<List<string>>[] sheets = separateUsersInSheets(cells);
-                     
-                    foreach (List<List<string>> sheet in sheets)
-                    {
-                        processSheet(sheet);
-                        HTMLRendering.generatePDFs(sheet);
-                    }
-                    */
-
-                    string[] fileContent = readLines(path);
-                    List<List<string>> cells = getCells(fileContent);
-                    List<List<string>>[] sheets = separateUsersInSheets(cells);
-                    /*string fileContent = readFile(path);
-                    Row sheet = convertToCells(fileContent);
-                    List<Row> suscriberSheets = separateUsersInSheets(sheet);
-                    foreach (Row mySheet in suscriberSheets)*/
                     foreach (List<List<string>> mySheet in sheets)
                     {
                         processSheet(mySheet);
@@ -44,10 +28,10 @@ namespace AssociationCSV
                         string firstname = HTMLRendering.getFirstName(mySheet).ToUpper();
                         string fileName = "CV_" + firstname + name;
                         string text = HTMLRendering.buildHtml(mySheet);
-                        Form2 previewForm = new Form2(text, name, firstname);
+                        PreviewForm previewForm = new PreviewForm(text, name, firstname);
                         DialogResult dr = previewForm.ShowDialog();
                         if(dr == DialogResult.OK) {
-                            text = Form2.text;
+                            text = PreviewForm.text;
                         }
                         string path2 = Directory.GetCurrentDirectory() + "\\" + fileName + ".html";
                         File.WriteAllText(Directory.GetCurrentDirectory() + "\\" + fileName + ".html", text, Encoding.GetEncoding("windows-1252"));
@@ -75,106 +59,6 @@ namespace AssociationCSV
             else {
                 MessageBox.Show("Le format du fichier :" + path + " est incorrect, le format attendu est '*.csv'");
             }
-        }
-
-
-        private static Row processSheet(Row mySheet)
-        {
-            mySheet = cleanCells(mySheet);
-            mySheet = emptyCells(mySheet);
-            mySheet = removeCells(mySheet);
-
-            return mySheet;
-        }
-
-        private static Row removeCells(Row mySheet)
-        {
-            List<int> indexesToDelete = new List<int>();
-            List<Column> rows = mySheet.getRows();
-            for (int j = 0; j < rows.Count; j++)
-            {
-                List<Cell> cells = rows[j].getCells();
-                for (int i = 0; i < cells.Count; i++)
-                {
-                    if (cells[i].getCell() == "" && isNotInList(indexesToDelete, i))
-                    {
-                        indexesToDelete.Add(i);
-                    }
-                }
-            }
-            List<Cell> tmp0 = new List<Cell>();
-            List<Cell> tmp1 = new List<Cell>();
-
-            for (int j = 0; j < rows[0].getCells().Count; j++)
-            {
-                if (rows[0].getCells()[j].getCell() != "" && rows[1].getCells()[j].getCell() != "")
-                {
-                    tmp0.Add(new Cell(rows[0].getCells()[j].getCell()));
-                    tmp1.Add(new Cell(rows[1].getCells()[j].getCell()));
-                }
-            }
-            rows[0].setCells(tmp0);
-            rows[1].setCells(tmp1);
-            mySheet.setRows(rows);
-            return mySheet;
-        }
-
-        private static Row emptyCells(Row mySheet)
-        {
-            List<Column> rows = mySheet.getRows();
-            for (int j = 0; j < rows.Count; j++)
-            {
-                List<Cell> line = rows[j].getCells();
-                for (int i = 0; i < line.Count; i++)
-                {
-                    if (line[i].getCell() == "N/A" || line[i].getCell() == "Non")
-                    {
-                        line[i].setCell("");
-                    }
-                }
-                rows[j].setCells(line);
-            }
-            mySheet.setRows(rows);
-            return mySheet;
-        }
-
-        private static Row cleanCells(Row mySheet)
-        {
-            List<Column> rows = mySheet.getRows();
-            for (int j = 0; j < rows.Count; j++)
-            {
-                Column line = rows[j];
-                List<Cell> cells = line.getCells();
-                for (int i = 0; i < cells.Count; i++)
-                {
-                    if (cells[i] == null)
-                    {
-                        cells[i].setCell("");
-                    }
-                    cells[i].setCell(cells[i].getCell().Replace("\n", ""));
-                    cells[i].setCell(cells[i].getCell().Replace("\"", ""));
-                    if (cells[i].getCell().Length > 0 && cells[i].getCell()[0] == ',')
-                    {
-                        cells[i].setCell(cells[i].getCell().Substring(1, cells[i].getCell().Length - 1));
-                    }
-                }
-                line.setCells(cells);
-            }
-            mySheet.setRows(rows);
-            return mySheet;
-        }
-
-        private static List<Row> separateUsersInSheets(Row sheet)
-        {
-            List<Row> sheets = new List<Row>();
-            for (int i = 1; i < sheet.getRows().Count; i++)
-            {
-                Row tmp = new Row();
-                tmp.getRows().Add(sheet.getRows()[0]);
-                tmp.getRows().Add(sheet.getRows()[i]);
-                sheets.Add(tmp);
-            }
-            return sheets;
         }
 
         private static List<List<string>> processSheet(List<List<string>> cells)
@@ -255,14 +139,6 @@ namespace AssociationCSV
             }         
             return cells;
         }
-
-        private static Row convertToCells(string fileContent)
-        {
-            Row result = new Row();
-            result.setRows(fileContent);
-            return result;
-        }
-
 
         private static List<List<string>> cleanCells(List<List<string>> cells)
         {

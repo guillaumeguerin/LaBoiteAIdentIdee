@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace AssociationCSV
 {
-    public partial class Form2 : Form
+    public partial class PreviewForm : Form
     {
         public static string text {get; set;}
 
-        public Form2()
+        public PreviewForm()
         {
             InitializeComponent();
         }
 
-        public Form2(string text2)
+        public PreviewForm(string text2)
         {
             text = text2;
             InitializeComponent();
         }
 
-        public Form2(string text2, string name, string firstname)
+        public PreviewForm(string text2, string name, string firstname)
         {
             text = text2;
             InitializeComponent();
