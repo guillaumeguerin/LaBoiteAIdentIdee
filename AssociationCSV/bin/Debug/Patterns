@@ -1,0 +1,100 @@
+<table style="text-align: left; width: 100px;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td colspan="4"><span style="font-weight: bold;"></span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+########
+<table style="text-align: left; width: 100px;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>De:</td>
+      <td></td>
+      <td>A:</td>
+      <td></td>
+      <td>Traces:</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Motivations:</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Instruments:</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+########
+<table style="text-align: left; width: 100px;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td></td>
+      <td>de: </td>
+      <td></td>
+      <td>a: </td>
+      <td></td>
+      <td>Nombre:</td>
+      <td></td>
+      <td>Genre</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Motivations :</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+########
