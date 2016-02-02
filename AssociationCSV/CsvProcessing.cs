@@ -42,7 +42,7 @@ namespace AssociationCSV
                         System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                         startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                         startInfo.FileName = "cmd.exe";
-                        startInfo.Arguments = "/C phantomjs pdf.js " + fileName + ".html " + fileName + ".pdf";
+                        startInfo.Arguments = "/C phantomjs.exe pdf.js " + fileName + ".html " + fileName + ".pdf";
                         process.StartInfo = startInfo;
                         process.StartInfo.WorkingDirectory = exeDir; 
                         process.Start();
