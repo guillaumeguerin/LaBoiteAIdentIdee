@@ -182,35 +182,9 @@ namespace AssociationCSV
                     text = Regex.Replace(text, @"##art<", cells[1][i]+"<");
                 }
             }
+
             text = Regex.Replace(text, @"##.*(\ |<)", "<");
-            //text = Regex.Replace(text, @"##[^<\ ]*", "");
-            //text = Regex.Replace(text, @"(\ |\n)*<td>(\ |\n)*</td>(\ |\n)*", "");
-            //text = text.Replace("<td></td>", "");
             text = text.Replace(" :", ":");
-            //text = text.Replace("<td></td>", "");
-            //text = text.Replace("projetsolo1nom", "");
-            //text = text.Replace("projetsolo2nom", "");
-            //text = text.Replace("projetsolo3nom", "");
-            //text = Regex.Replace(text, @"(\ \n)*<td>De:<\/td>(\ |\n)*<td>A:<\/td>(\ |\n)*<td>Traces:<\/td>(\ \n)*", "");
-            //text = text.Replace("<td colspan=\"4\"><span style=\"font-weight: bold;\"></span></td>", "");
-            
-            //text = Regex.Replace(text, @"(\ |\n)*<tr>(\ |\n)*<\/tr>", "");
-            //text = Regex.Replace(text, @"<td>De:</td>(\ |\n)*<td>A:<\/td>", "");
-
-            //text = Regex.Replace(text, @"<td(.)*><\/td>", "");
-
-
-            /*string fuckyou = "      <td>De:</td><td>A:</td> <td>Traces:</td>";
-            text = Regex.Replace(text, @"<td>De:</td>(\ |\n)*<td>A:<\/td>", "");*/
-
-
-
-            //fuckyou = Regex.Replace(fuckyou, "<td(.)*><\\/td>", "");
-            //text = Regex.Replace(text, "<td>Scènes:</td>(.|\n)*</tr>", "</tr>");
-            // Regex are slow as f***
-
-            /*text = Regex.Replace(text, "<table style=\"text-align: left; width: 100px;\" border=\"1\"(.|\n)*cellpadding=\"2\" cellspacing=\"2\">(.|\n)*<tbody>(.|\n)*<tr>(.|\n)*<td colspan=\"4\"><span style=\"font-weight: bold;\"><(.|\n)*</table>", "");
-            text = Regex.Replace(text, "<table style=\"text-align: left; width: 100px;\" border=\"1\" cellpadding=\"2\" cellspacing=\"2\">(.|\n)*<tbody>(.|\n)*<tr>(.|\n)*<td></td>(.|\n)*<td></td>(.|\n)*<td>De:</td>(.|\n)*<td></td>", "");*/
             return text;
         }
 
